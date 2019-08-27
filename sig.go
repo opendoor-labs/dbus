@@ -1,6 +1,7 @@
 package dbus
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"strings"
@@ -256,4 +257,8 @@ func typeFor(s string) (t reflect.Type) {
 		t = interfacesType
 	}
 	return
+}
+
+func (s Signature) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.str)
 }
