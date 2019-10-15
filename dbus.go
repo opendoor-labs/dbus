@@ -87,10 +87,15 @@ func setDest(dest, src reflect.Value) error {
 	}
 	if isVariant(src.Type()) && !isVariant(dest.Type()) {
 		src = getVariantValue(src)
+		// not quite ready to directly convert,
+		// since we're dealing with a variant value
+		// which may have a complex type
+		return store(dest, src)
 	}
+
 	if !src.Type().ConvertibleTo(dest.Type()) {
 		return fmt.Errorf(
-			"dbus.Store: type mismatch: cannot convert %s to %s",
+			"dbus.Store: base type mismatch: cannot convert %s to %s",
 			src.Type(), dest.Type())
 	}
 	dest.Set(src.Convert(dest.Type()))

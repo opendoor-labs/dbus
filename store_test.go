@@ -97,3 +97,26 @@ func TestStoreNested(t *testing.T) {
 			dest, src)
 	}
 }
+
+type testStruct1 struct {
+	V0 uint32
+	V1 bool
+}
+
+func TestStoreVariantStruct(t *testing.T) {
+	src := MakeVariantWithSignature([]interface{}{1, true}, Signature{"(ub)"})
+	dest := testStruct1{}
+	err := Store([]interface{}{src}, &dest)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !reflect.DeepEqual(dest.V0, uint32(1)) {
+		t.Errorf("not equal: got '%v', want '%v'",
+			dest.V0, 1)
+	}
+	if !reflect.DeepEqual(dest.V1, true) {
+		t.Errorf("not equal: got '%v', want '%v'",
+			dest.V1, true)
+	}
+
+}
