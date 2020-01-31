@@ -1,3 +1,3 @@
-module github.com/godbus/dbus/v5
+module github.com/opendoor-labs/dbus/v5
 
 go 1.12
