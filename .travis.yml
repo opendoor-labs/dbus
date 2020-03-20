@@ -1,11 +1,11 @@
 dist: bionic
 language: go
-go_import_path: github.com/godbus/dbus
+go_import_path: github.com/opendoor-labs/dbus
 
 go:
-  - 1.10.x
   - 1.11.x
   - 1.12.x
+  - 1.13.x
   - tip
 
 env:
@@ -38,7 +38,8 @@ addons:
     - dbus-x11
 
 before_install:
+  - export GO111MODULE=on
 
 script:
-  - go test -v -race ./...                   # Run all the tests with the race detector enabled
+  - go test -v -race -mod=readonly ./...                   # Run all the tests with the race detector enabled
   - go vet ./...                             # go vet is the official Go static analyzer
