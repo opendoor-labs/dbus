@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/opendoor-labs/dbus/v5"
-	"github.com/opendoor-labs/dbus/v5/introspect"
+	"github.com/godbus/dbus/v5"
+	"github.com/godbus/dbus/v5/introspect"
 )
 
 const intro = `
