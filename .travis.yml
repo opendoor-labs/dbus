@@ -38,6 +38,7 @@ addons:
     - dbus-x11
 
 before_install:
+  - export GO111MODULE=on
 
 script:
   - go test -v -race -mod=readonly ./...                   # Run all the tests with the race detector enabled
