@@ -1,6 +1,6 @@
 dist: bionic
 language: go
-go_import_path: github.com/godbus/dbus
+go_import_path: github.com/opendoor-labs/dbus
 
 go:
   - 1.10.x
