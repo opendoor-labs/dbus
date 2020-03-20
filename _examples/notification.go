@@ -1,6 +1,6 @@
 package main
 
-import "github.com/opendoor-labs/dbus/v5"
+import "github.com/godbus/dbus/v5"
 
 func main() {
 	conn, err := dbus.SessionBus()
